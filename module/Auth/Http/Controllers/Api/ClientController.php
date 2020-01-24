@@ -24,7 +24,8 @@ class ClientController extends BaseController
   */
  public function index()
  {
-  return $this->response(null, 200);
+  $clients = ApiClient::with(['user'])->get();
+  return $this->response($clients, 200);
  }
 
  /**
